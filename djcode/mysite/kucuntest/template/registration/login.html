@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% extends "demo2.html" %}
+{% block title %}用户登录{% endblock%}
+{% block daohang %}
+    <li class=""><a href="#">品类管理</a></li>
+            <li class=""><a href="#">供应商管理</a></li>
+            <li class=""><a href="#">合同管理</a></li>
+            <li class=""><a href="#">付款管理</a></li>
+            <li class=""><a href="#">库存管理</a></li>
+{% endblock %}
+
+{% block login %}
+{# Display a form #}
+
+<div class="container">
+{% if form.errors %}
+
+    <p class="text-danger">输入的用户名和密码不匹配，请重新输入！</p>
+{% endif %}
+    <div class="row row-offcanvas row-offcanvas-right">
+    <div class="col-xs-12 col-sm-9">
+    <div class="row">
+    <div class="col-6 col-sm-6 col-lg-5">
+    <h2>用户登录</h2>
+    <form action="{% url 'django.contrib.auth.views.login' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_username">用户名</label>
+            <input type="text" class="form-control" name="username" id="id_username" placeholder="用户名">
+
+        </div>
+        <div class="form-group">
+            <label for="id_password">密码</label>
+            <input type="password" class="form-control" name="password" id="id_password" placeholder="密码">
+        </div>
+
+        <button type="submit" class="btn btn-primary">登录</button>
+        <input type="hidden" name="next" value="{{ next }}" />
+
+    </form>
+    </div><!--/span-->
+    </div>
+    </div>
+    </div>
+{% endblock %}

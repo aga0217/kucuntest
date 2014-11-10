@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+{% extends "demo2.html" %}
+{% block title %}{{title}}{% endblock%}
+{% block daohang %}
+{% ifequal listleibie 'pl' %}
+            <li class="active"><a href="/pinlei/pinleilist/">品类管理</a></li>
+            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
+            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
+            <li class=""><a href="/fukuan/fukuangllist/">付款管理</a></li>
+            <li class=""><a href="/kucun/kucunlist/">库存管理</a></li>
+    {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/todo/todolist/">TODO</a></li>
+        {% endifequal %}
+{% endifequal %}
+{% ifequal listleibie 'gys' %}
+            <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
+            <li class="active"><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
+            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
+            <li class=""><a href="/fukuan/fukuangllist">付款管理</a></li>
+            <li class=""><a href="/kucun/kucunlist">库存管理</a></li>
+    {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/todo/todolist/">TODO</a></li>
+        {% endifequal %}
+
+{% endifequal %}
+{% ifequal listleibie 'ht' %}
+            <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
+            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
+            <li class="active"><a href="/hetong/hetonglist/">合同管理</a></li>
+            <li class=""><a href="/fukuan/fukuangllist">付款管理</a></li>
+            <li class=""><a href="/kucun/kucunlist/">库存管理</a></li>
+    {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/todo/todolist/">TODO</a></li>
+        {% endifequal %}
+{% endifequal %}
+{% ifequal listleibie 'fk' %}
+            <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
+            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
+            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
+            <li class="active"><a href="/fukuan/fukuangllist/">付款管理</a></li>
+            <li class=""><a href="/kucun/kucunlist/">库存管理</a></li>
+    {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/todo/todolist/">TODO</a></li>
+        {% endifequal %}
+{% endifequal %}
+{% ifequal listleibie 'kc' %}
+            <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
+            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
+            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
+            <li class=""><a href="/fukuan/fukuangllist/">付款管理</a></li>
+            <li class="active"><a href="/kucun/kucunlist/">库存管理</a></li>
+    {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/todo/todolist/">TODO</a></li>
+        {% endifequal %}
+{% endifequal %}
+{% ifequal listleibie 'crk' %}
+            <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
+            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
+            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
+            <li class=""><a href="/fukuan/fukuangllist/">付款管理</a></li>
+            <li class="active"><a href="/kucun/kucunlist/">库存管理</a></li>
+    {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/todo/todolist/">TODO</a></li>
+        {% endifequal %}
+{% endifequal %}
+{% ifequal listleibie 'fkl' %}
+            <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
+            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
+            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
+            <li class="active"><a href="/fukuan/fukuangllist/">付款管理</a></li>
+            <li class=""><a href="/kucun/kucunlist/">库存管理</a></li>
+    {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/todo/todolist/">TODO</a></li>
+        {% endifequal %}
+{% endifequal %}
+{% ifequal listleibie 'fkmx' %}
+              <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
+            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
+            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
+            <li class="active"><a href="/fukuan/fukuangllist/">付款管理</a></li>
+            <li class=""><a href="/kucun/kucunlist/">库存管理</a></li>
+    {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/todo/todolist/">TODO</a></li>
+        {% endifequal %}
+{% endifequal %}
+</div>
+{% endblock %}
+{% block biaoge %}
+    {% if request.user.is_authenticated %}
+    <p class="text-info">{{ request.user }}您好！<a class="text-danger" href="/accounts/logout/">Logout</a></p>
+{% endif %}
+<p class="text-info">正在{{title}}：</class><big><a class= "text-debug">{{nameorNO}}</a></big></p>
+    {% load bootstrap3 %}
+
+
+    <form action=" " method="post" class="form" style="width: 80%;">
+    {% csrf_token %}
+    {% bootstrap_form form layout=layout %}
+
+    {% buttons %}
+        <button  {% if erbuyanzheng %}onclick="javascript:if(confirm('{{erbuyanzhengneirong}}'))document.form1.submit();else return false;"{% endif %}type="submit" name="updata" class="btn btn-primary">提交
+        </button>
+        {% if isdel %}
+        <button  onclick="javascript:if(confirm('确认删除吗？'))document.form1.submit();else return false;"type="submit" name="del" class="btn btn-primary"> 删除
+        </button>
+        {% endif %}
+     {% endbuttons %}
+</form>
+{% endblock %}

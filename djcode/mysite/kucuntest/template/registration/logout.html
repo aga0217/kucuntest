@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends "demo2.html" %}
+{% block title %}退出登录{% endblock%}
+{% block daohang %}
+    <li class=""><a href="#">品类管理</a></li>
+            <li class=""><a href="#">供应商管理</a></li>
+            <li class=""><a href="#">合同管理</a></li>
+            <li class=""><a href="#">付款管理</a></li>
+            <li class=""><a href="#">库存管理</a></li>
+{% endblock %}
+
+{% block login %}
+{# Display a form #}
+
+<p class="text-info">感谢您今天在本站花费了一些宝贵时间。</p>
+<p class="text-success" href="/accounts/login/">重新登录</p>
+
+{% endblock %}

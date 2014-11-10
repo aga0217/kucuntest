@@ -1,0 +1,24 @@
+<html>
+<head><title>Ordering notice</title></head>
+
+<body>
+
+<h1>Ordering notice</h1>
+
+<p>Dear {{ person_name }},</p>
+
+<p>Thanks for placing an order from {{ company }}. It's scheduled to
+ship on {{ ship_date|date:"F j, Y" }}.</p>
+
+<p>Here are the items you've ordered:</p>
+
+<ul>
+{% for item in item_list %}
+    <li>{{ item }}</li>
+{% endfor %}
+</ul>
+
+
+
+</body>
+</html>
