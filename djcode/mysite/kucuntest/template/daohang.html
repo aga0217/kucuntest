@@ -1,0 +1,145 @@
+{% ifequal listleibie 'pl' %}
+            <li class="active"><a href="/pinlei/pinleilist/">品类管理</a></li>
+            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
+            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
+            <li class=""><a href="/fukuan/fukuangllist/">付款管理</a></li>
+            <li class=""><a href="/kucun/kucunlist/">库存管理</a></li>
+            {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/todo/todolist/">TODO</a></li>
+            {% endifequal %}
+            {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/yijian/yijianlist">留言板</a></li>
+            {% endifequal %}
+{% endifequal %}
+{% ifequal listleibie 'gys' %}
+            <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
+            <li class="active"><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
+            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
+            <li class=""><a href="/fukuan/fukuangllist">付款管理</a></li>
+            <li class=""><a href="/kucun/kucunlist">库存管理</a></li>
+            {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/todo/todolist/">TODO</a></li>
+            {% endifequal %}
+            {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/yijian/yijianlist">留言板</a></li>
+            {% endifequal %}
+{% endifequal %}
+{% ifequal listleibie 'ht' %}
+            <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
+            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
+            <li class="active"><a href="/hetong/hetonglist/">合同管理</a></li>
+            <li class=""><a href="/fukuan/fukuangllist">付款管理</a></li>
+            <li class=""><a href="/kucun/kucunlist/">库存管理</a></li>
+            {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/todo/todolist/">TODO</a></li>
+            {% endifequal %}
+            {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/yijian/yijianlist">留言板</a></li>
+            {% endifequal %}
+{% endifequal %}
+{% ifequal listleibie 'fk' %}
+            <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
+            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
+            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
+            <li class="active"><a href="/fukuan/fukuangllist/">付款管理</a></li>
+            <li class=""><a href="/kucun/kucunlist/">库存管理</a></li>
+            {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/todo/todolist/">TODO</a></li>
+            {% endifequal %}
+            {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/yijian/yijianlist">留言板</a></li>
+            {% endifequal %}
+{% endifequal %}
+{% ifequal listleibie 'kc' %}
+            <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
+            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
+            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
+            <li class=""><a href="/fukuan/fukuangllist/">付款管理</a></li>
+            <li class="active"><a href="/kucun/kucunlist/">库存管理</a></li>
+            {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/todo/todolist/">TODO</a></li>
+            {% endifequal %}
+            {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/yijian/yijianlist">留言板</a></li>
+            {% endifequal %}
+{% endifequal %}
+{% ifequal listleibie 'crk' %}
+            <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
+            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
+            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
+            <li class=""><a href="/fukuan/fukuangllist/">付款管理</a></li>
+            <li class="active"><a href="/kucun/kucunlist/">库存管理</a></li>
+            {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/todo/todolist/">TODO</a></li>
+            {% endifequal %}
+            {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/yijian/yijianlist">留言板</a></li>
+            {% endifequal %}
+{% endifequal %}
+{% ifequal listleibie 'fkl' %}
+            <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
+            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
+            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
+            <li class="active"><a href="/fukuan/fukuangllist/">付款管理</a></li>
+            <li class=""><a href="/kucun/kucunlist/">库存管理</a></li>
+            {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/todo/todolist/">TODO</a></li>
+            {% endifequal %}
+            {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/yijian/yijianlist">留言板</a></li>
+            {% endifequal %}
+{% endifequal %}
+{% ifequal listleibie 'fkmx' %}
+            <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
+            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
+            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
+            <li class="active"><a href="/fukuan/fukuangllist/">付款管理</a></li>
+            <li class=""><a href="/kucun/kucunlist/">库存管理</a></li>
+            {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/todo/todolist/">TODO</a></li>
+            {% endifequal %}
+            {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/yijian/yijianlist">留言板</a></li>
+            {% endifequal %}
+{% endifequal %}
+{% ifequal listleibie 'todo' %}
+            <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
+            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
+            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
+            <li class=""><a href="/fukuan/fukuangllist/">付款管理</a></li>
+            <li class=""><a href="/kucun/kucunlist/">库存管理</a></li>
+            {% ifequal request.user.username 'admin' %}
+            <li class="active"><a href="/todo/todolist/">TODO</a></li>
+            {% endifequal %}
+            {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/yijian/yijianlist">留言板</a></li>
+            {% endifequal %}
+{% endifequal %}
+{% ifequal listleibie 'yijian' %}
+            <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
+            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
+            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
+            <li class=""><a href="/fukuan/fukuangllist/">付款管理</a></li>
+            <li class=""><a href="/kucun/kucunlist/">库存管理</a></li>
+            {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/todo/todolist/">TODO</a></li>
+            {% endifequal %}
+            {% ifequal request.user.username 'admin' %}
+            <li class="active"><a href="/yijian/yijianlist">留言板</a></li>
+            {% endifequal %}
+{% endifequal %}
+{% ifequal listleibie 'liuchengtu' %}
+            <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
+            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
+            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
+            <li class=""><a href="/fukuan/fukuangllist/">付款管理</a></li>
+            <li class=""><a href="/kucun/kucunlist/">库存管理</a></li>
+            {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/todo/todolist/">TODO</a></li>
+            {% endifequal %}
+            {% ifequal request.user.username 'admin' %}
+            <li class=""><a href="/yijian/yijianlist">留言板</a></li>
+            {% endifequal %}
+
+{% endifequal %}
+</div>

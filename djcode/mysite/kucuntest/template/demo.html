@@ -10,7 +10,7 @@
     <title>欢迎进入库存管理系统</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="/static/css/offcanvas.css" rel="stylesheet">
@@ -21,8 +21,8 @@
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="/static/js/html5shiv.min.js"></script>
-      <script src="/static/js/respond.min.js"></script>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
   <div id="messages">
@@ -55,14 +55,13 @@
             <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
             <li class=""><a href="/fukuan/fukuangllist">付款管理</a></li>
             <li class=""><a href="/kucun/kucunlist">库存管理</a></li>
+            <li class="active"><a href="/yijian/addyijian/url={{ request.path }}">我要留言</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-{% if not request.user.is_authenticated %}
+
             <li><a href="/accounts/login/">Login</a></li>
                 <li><a href="/accounts/logout/">Logout</a></li>
-{% else %}
-              <p class="text-info">{{ request.user }}您好！<a class="text-danger" href="/accounts/logout/">Logout</a></p>
-              {% endif %}
+
 
           </ul>
         </div><!-- /.nav-collapse -->
@@ -79,17 +78,17 @@
           </p>
           <div class="jumbotron">
             <h1>Hello, world!</h1>
-            <p>这是我学习django后为方便自己的工作而制作的小工具，欢迎你的到来，能帮助我测试一下就更感谢了，没有多复杂，就试着填写一些数据就可以了。另外，你看到的网站是架设在国外主机上的，访问速度会慢一些，这个我也没有办法解决，因为国内主机访问速度快，但是贵很多。</p>
+            <p>这是我学习django后为方便自己的工作而制作的小工具，欢迎你的到来，能帮助我测试一下就更感谢了，没有多复杂，就试着填写一些数据就可以了。另外，为了在手机上面也能正常浏览，依托前端框架，我加入了兼容代码，也欢迎使用手机进行浏览。最后，由于是架设在国外主机上的，第一次访问时会慢一些，尤其在晚上会更明显。</p>
           </div>
           <div class="row">
             <div class="col-6 col-sm-6 col-lg-4">
               <h2>后台实现</h2>
-              <p><a href="https://www.djangoproject.com">Django</a>是<a href="https://www.python.org/">Python</a>下开源Web开发框架，最大的优点是可以快速开发数据库应用。我是自学，水平有限，这个工具中也只使用了最基本的编程方法，很笨拙。其实亚马逊的页面就是它实现的，那才是比较高的境界。</p>
+              <p><a href="https://www.djangoproject.com">Django</a>是<a href="https://www.python.org/">Python</a>下开源Web开发框架，最大的优点是可以快速开发数据库应用。我是自学，水平有限，这个工具中也只使用了最基本的编程方法，很笨拙。其实很多电商的页面就是Django实现的，那些水平很高。</p>
               <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
             </div><!--/span-->
             <div class="col-6 col-sm-6 col-lg-4">
               <h2>前台实现</h2>
-              <p>前台采用了<a href="http://getbootstrap.com/">Bootstrap</a>框架，它是开源CSS库，直接向网页编写者提供诸如表单、按钮、导航条等样式及实现方法。我的这个页面中也仅仅使用了最简单的方法来使网页展现的漂亮一些。网页框架我直接COPY了<a href="https://www.djangoproject.com">offcanvas</a>。</p>
+              <p>前台采用了<a href="http://getbootstrap.com/">Bootstrap</a>框架，它是开源CSS库，直接向网页编写者提供诸如表单、按钮、导航条等样式及实现方法，最棒的是使网页得以在手机屏幕上也能自动适应屏幕显示。网页布局我直接COPY了<a href="https://www.djangoproject.com">offcanvas</a>。</p>
               <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
             </div><!--/span-->
             <div class="col-6 col-sm-6 col-lg-4">
@@ -109,8 +108,8 @@
             </div><!--/span-->
             <div class="col-6 col-sm-6 col-lg-4">
               <h2>项目说明书</h2>
-              <p>正在完善中……</p>
-              <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+              <p>这里是项目流程图，点击按钮即可查看。</p>
+              <p><a class="btn btn-default" href="/liuchengtu/" role="button">查看 &raquo;</a></p>
             </div><!--/span-->
           </div><!--/row-->
         </div><!--/span-->
@@ -145,7 +144,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/static/js/jquery.min.js"></script>
-    <script src="/static/js/bootstrap.min.js"></script>
+   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/static/js/ie10-viewport-bug-workaround.js"></script>

@@ -3,12 +3,11 @@ from django.shortcuts import render_to_response, get_object_or_404,get_list_or_4
 from forms import *
 from models import *
 from django.views.generic import ListView
-from django.views.generic.edit import CreateView
 from django.http import HttpResponseRedirect, HttpResponseNotFound
 from django.contrib import messages
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
-from braces.views import LoginRequiredMixin,FormMessagesMixin
+from braces.views import LoginRequiredMixin
 from django.contrib.auth import logout
 import datetime
 
@@ -46,7 +45,12 @@ def yiqianshuju():
 
 
 def demo(request):
-	return render_to_response('demo.html', context_instance=RequestContext(request))
+	return render_to_response('demo.html', locals(),context_instance=RequestContext(request))
+
+def liuchengtu(request):
+	title = u'流程图'
+	listleibie = 'liuchengtu'
+	return render_to_response('liuchengtu.html',locals() ,context_instance=RequestContext(request))
 
 
 @login_required
@@ -810,3 +814,78 @@ def edittodo(request, id):
 	else:
 		form = EditTodo(instance=edittodo)
 	return render_to_response('edit.html',locals(),context_instance=RequestContext(request))
+
+
+def YijianCreate(request,url):
+	url = url
+	title = u'留言板'
+	listleibie='yijian'
+	if request.method == 'POST':
+
+		form = Yijian(request.POST)
+
+		if form.is_valid():
+			yijian_email_raw = form.cleaned_data['yijian_email']
+			if not yijian_email_raw != '':
+				yijian_email = yijian_email_raw
+			else:
+				yijian_email = None
+			yijian_neirong = form.cleaned_data['yijian_neirong']
+			yijian_riqi = datetime.date.today()
+			p = yijian(url = url,yijian_email=yijian_email,yijian_riqi=yijian_riqi,yijian_neirong=yijian_neirong)
+			p.save()
+			messages.add_message(request, messages.SUCCESS, '留言成功，谢谢！')
+			return HttpResponseRedirect(url)
+
+	else:
+		form = Yijian()
+	return render_to_response('add.html',locals(),context_instance=RequestContext(request))
+
+
+@login_required
+def edityijian(request, id):
+	id = int(id)
+	edityijian = get_object_or_404(yijian, id=id)
+	listleibie='yijian'
+	title = u'edityijian'
+	isdel = True
+
+	if not request.user.username == 'admin':
+		messages.add_message(request, messages.WARNING, '这个模块只能由Admin使用,请重新登录！')
+		return HttpResponseRedirect('/accounts/login/')
+	if request.method == 'POST':
+		form = EditYijian(instance=edityijian, data=request.POST)
+		if request.POST.has_key("updata"):
+			if form.is_valid():
+				form.save()
+				messages.add_message(request, messages.SUCCESS, '数据更新成功！')
+				return HttpResponseRedirect('/yijian/yijianlist/')
+		if request.POST.has_key("del"):  #if form.is_valid(): #删除时只是需要在表单中显示相关数据，不需要进行数据验证。
+			q = yijian.objects.filter(id=id)
+			q.delete()
+			messages.add_message(request, messages.SUCCESS, '数据删除成功！')
+			return HttpResponseRedirect('/yijian/yijianlist')
+	else:
+		form = EditYijian(instance=edityijian)
+	return render_to_response('edit.html',locals(),context_instance=RequestContext(request))
+
+
+class yijianlist(LoginRequiredMixin,ListView): #不能添加额外参数
+	model = yijian
+	template_name = 'list.html'
+	context_object_name = 'yijianlist'
+
+	def dispatch(self, request, *args, **kwargs): #判断用户名
+		if not self.request.user.username == 'admin':
+			messages.add_message(request, messages.WARNING, '这个模块只能由Admin使用，请重新登录！')
+			return HttpResponseRedirect('/accounts/login/')
+		else:
+			return super(yijianlist, self).dispatch(request, *args, **kwargs)
+	def get_context_data(self, **kwargs):  #向输出到模板的内容中添加其他模板变量，可用作在模板中临时添加另一列内容（使用queset）而无需更改数据库
+			context = super(yijianlist, self).get_context_data(**kwargs)
+			#context['todolist'] = self.todolist #将变量名添加到输出结果中
+			context['listleibie'] = 'yijian'
+			context['title'] = u'yijianlist'  #不能同时添加多个模板变量，需要一行一行添加
+			context['request'] = self.request
+			return context
+

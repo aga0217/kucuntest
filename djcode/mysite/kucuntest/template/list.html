@@ -1,112 +1,17 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 {% extends "demo2.html" %}
 {% block title %}{{title}}{% endblock%}
-{% block daohang %}
-{% ifequal listleibie 'pl' %}
-            <li class="active"><a href="/pinlei/pinleilist/">品类管理</a></li>
-            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
-            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
-            <li class=""><a href="/fukuan/fukuangllist/">付款管理</a></li>
-            <li class=""><a href="/kucun/kucunlist/">库存管理</a></li>
-    {% ifequal request.user.username 'admin' %}
-            <li class=""><a href="/todo/todolist/">TODO</a></li>
-        {% endifequal %}
-{% endifequal %}
-{% ifequal listleibie 'gys' %}
-            <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
-            <li class="active"><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
-            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
-            <li class=""><a href="/fukuan/fukuangllist">付款管理</a></li>
-            <li class=""><a href="/kucun/kucunlist">库存管理</a></li>
-{% ifequal request.user.username 'admin' %}
-            <li class=""><a href="/todo/todolist/">TODO</a></li>
-        {% endifequal %}
-{% endifequal %}
-{% ifequal listleibie 'ht' %}
-            <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
-            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
-            <li class="active"><a href="/hetong/hetonglist/">合同管理</a></li>
-            <li class=""><a href="/fukuan/fukuangllist">付款管理</a></li>
-            <li class=""><a href="/kucun/kucunlist/">库存管理</a></li>
-    {% ifequal request.user.username 'admin' %}
-            <li class=""><a href="/todo/todolist/">TODO</a></li>
-        {% endifequal %}
-{% endifequal %}
-{% ifequal listleibie 'fk' %}
-            <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
-            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
-            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
-            <li class="active"><a href="/fukuan/fukuangllist/">付款管理</a></li>
-            <li class=""><a href="/kucun/kucunlist/">库存管理</a></li>
-    {% ifequal request.user.username 'admin' %}
-            <li class=""><a href="/todo/todolist/">TODO</a></li>
-        {% endifequal %}
-{% endifequal %}
-{% ifequal listleibie 'kc' %}
-            <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
-            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
-            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
-            <li class=""><a href="/fukuan/fukuangllist/">付款管理</a></li>
-            <li class="active"><a href="/kucun/kucunlist/">库存管理</a></li>
-    {% ifequal request.user.username 'admin' %}
-            <li class=""><a href="/todo/todolist/">TODO</a></li>
-        {% endifequal %}
-{% endifequal %}
-{% ifequal listleibie 'crk' %}
-            <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
-            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
-            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
-            <li class=""><a href="/fukuan/fukuangllist/">付款管理</a></li>
-            <li class="active"><a href="/kucun/kucunlist/">库存管理</a></li>
-    {% ifequal request.user.username 'admin' %}
-            <li class=""><a href="/todo/todolist/">TODO</a></li>
-        {% endifequal %}
-{% endifequal %}
-{% ifequal listleibie 'fkl' %}
-            <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
-            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
-            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
-            <li class="active"><a href="/fukuan/fukuangllist/">付款管理</a></li>
-            <li class=""><a href="/kucun/kucunlist/">库存管理</a></li>
-    {% ifequal request.user.username 'admin' %}
-            <li class=""><a href="/todo/todolist/">TODO</a></li>
-        {% endifequal %}
-{% endifequal %}
-{% ifequal listleibie 'fkmx' %}
-              <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
-            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
-            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
-            <li class="active"><a href="/fukuan/fukuangllist/">付款管理</a></li>
-            <li class=""><a href="/kucun/kucunlist/">库存管理</a></li>
-    {% ifequal request.user.username 'admin' %}
-            <li class=""><a href="/todo/todolist/">TODO</a></li>
-        {% endifequal %}
-{% endifequal %}
-{% ifequal listleibie 'todo' %}
-              <li class=""><a href="/pinlei/pinleilist/">品类管理</a></li>
-            <li class=""><a href="/gongyingshang/gongyingshanglist/">供应商管理</a></li>
-            <li class=""><a href="/hetong/hetonglist/">合同管理</a></li>
-            <li class=""><a href="/fukuan/fukuangllist/">付款管理</a></li>
-            <li class=""><a href="/kucun/kucunlist/">库存管理</a></li>
-    {% ifequal request.user.username 'admin' %}
-            <li class="active"><a href="/todo/todolist/">TODO</a></li>
-        {% endifequal %}
-{% endifequal %}
-</div>
-{% endblock %}
+
 
 
 
 
 {% block biaoge %}
-
 {% ifequal listleibie 'gys' %}
-    {% if request.user.is_authenticated %}
-    <p class="text-info">{{ request.user }}您好！<a class="text-danger" href="/accounts/logout/">Logout</a></p>
-    {% endif %}
 <p class="text-danger">供应商输入后如果生成了合同，则不能修改名称和删除！</p>
 <a href="/gongyingshang/addgongyingshang/" style="width: 80%;" class="btn btn-primary btn-lg btn-block">按此添加供应商</a>
-<table style="width: 80%;" class="table table-hover">
+    <div class="table-responsive">
+<table  class="table table-hover">
      <thead>
 		 <tr>
 			    <th>供应商名称</th>
@@ -129,27 +34,29 @@
        <td>{{ gongyingshang.zhanghao }}</td>
        <td>{{ gongyingshang.hanghao }}</td>
 		  
-	   <td>{% ifequal gongyingshang.isedit 0 %}<a href="/gongyingshang/editgongyingshang/{{gongyingshang.id}}" class="btn btn-primary">编辑</a> {% else %}<a href="/gongyingshang/editgongyingshangname/{{gongyingshang.id}}" class="btn btn-primary" >编辑(可删除)</a><br></td>
-	     
-	   
-	     {% endifequal %}
+	   <td>{% ifequal gongyingshang.isedit 0 %}
+           <a href="/gongyingshang/editgongyingshang/{{gongyingshang.id}}" class="btn btn-primary">编辑</a>
+           {% else %}
+           <a href="/gongyingshang/editgongyingshangname/{{gongyingshang.id}}" class="btn btn-primary" >编辑(可删除)</a><br>
+           {% endifequal %}
+        </td>
 	 </tr>
 	 {% endfor %}
 	 </tbody>
 </table>
+    </div>
 {% endifequal %}
 
 
 {% ifequal listleibie 'pl' %}
 
-    {% if request.user.is_authenticated %}
-    <p class="text-info">{{ request.user }}您好！<a class="text-danger" href="/accounts/logout/">Logout</a></p>
-    {% endif %}
+
 
 
 <p class="text-danger">如该品类已经用于生成合同则无法进行编辑（即使该合同被删除），请小心录入！</p>
-<a href="/pinlei/addpinlei/" style="width: 40%;" class="btn btn-primary btn-lg btn-block">按此添加品类</a>
-<table style="width: 40%;" class="table table-hover">
+<a href="/pinlei/addpinlei/" style="width: 50%;" class="btn btn-primary btn-lg btn-block">按此添加品类</a>
+    <div class="table-responsive">
+<table style="width: 50%;" class="table table-hover">
      <thead>
 		 <tr>
 			    <th>品类</th>           
@@ -173,17 +80,16 @@
 	 {% endfor %}
 	 </tbody>
 </table>
-
+</div>
 {% endifequal %}
 
 {% ifequal listleibie 'ht' %}
-    {% if request.user.is_authenticated %}
-    <p class="text-info">{{ request.user }}您好！<a class="text-danger" href="/accounts/logout/">Logout</a></p>
-    {% endif %}
+
 
 <p class="text-danger">如该合同已经有出入库记录或者付款记录，则该合同将无法进行编辑！</p>
 <a href="/hetong/addhetong/" style="width: 80%;" class="btn btn-primary btn-lg btn-block">按此添加合同</a>
-<table style="width: 100%;" class="table table-hover">
+    <div class="table-responsive">
+<table class="table table-hover">
      <thead>
 		 <tr>
 			    <th>合同号</th>           
@@ -222,18 +128,18 @@
 	 {% endfor %}
 	 </tbody>
 </table>
+    </div>
 
 {% endifequal %}
 
 {% ifequal listleibie 'kc' %}
-    {% if request.user.is_authenticated %}
-    <p class="text-info">{{ request.user }}您好！<a class="text-danger" href="/accounts/logout/">Logout</a></p>
-    {% endif %}
+
 
 <p class="text-danger">这里显示的是库存列表,下方按钮提供明细信息。</p>
 <a href="/churuku/churukulist/null" style="width: 80%;" class="btn btn-warning btn-lg btn-block">按此查看出入库明细</a>
 <a href="/churuku/addchuruku/null" style="width: 80%;" class="btn btn-primary btn-lg btn-block">按此添加出入库信息</a>
-<table style="width: 80%;" class="table table-hover">
+    <div class="table-responsive">
+<table class="table table-hover">
      <thead>
 		 <tr>
 			    <th>供应商</th>           
@@ -261,16 +167,15 @@
 	 {% endfor %}
 	 </tbody>
 </table>
-
+</div>
 {% endifequal %}
 {% ifequal listleibie 'crk' %}
-    {% if request.user.is_authenticated %}
-    <p class="text-info">{{ request.user }}您好！<a class="text-danger" href="/accounts/logout/">Logout</a></p>
-    {% endif %}
+
 
 <p class="text-danger">这里显示的是出入库明细表。</p>
 <a href="/churuku/addchuruku/" style="width: 80%;" class="btn btn-primary btn-lg btn-block">按此添加出入库信息</a>
-<table style="width: 80%;" class="table table-hover">
+    <div class="table-responsive">
+<table class="table table-hover">
      <thead>
 		 <tr>
 			    <th>供应商</th>           
@@ -312,16 +217,14 @@
 
     {% endifnotequal %}
 </table>
-
+</div>
 {% endifequal %}
 
 {% ifequal listleibie 'fkl' %}
-{% if request.user.is_authenticated %}
-    <p class="text-info">{{ request.user }}您好！<a class="text-danger" href="/accounts/logout/">Logout</a></p>
-{% endif %}
 
 <a href="/fukuan/fukuanmxlist/null" style="width: 80%;" class="btn btn-warning btn-lg btn-block">按此查看付款明细</a>
 <a href="/fukuan/addfukuanmx/null" style="width: 80%;" class="btn btn-primary btn-lg btn-block">按此添加付款信息</a>
+    <div class="table-responsive">
 <table style="width: 80%;" class="table table-hover">
      <thead>
 		 <tr>
@@ -351,15 +254,14 @@
 	 {% endfor %}
 	 </tbody>
 </table>
-
+</div>
 {% endifequal %}
 
 {% ifequal listleibie 'fkmx' %}
-    {% if request.user.is_authenticated %}
-    <p class="text-info">{{ request.user }}您好！<a class="text-danger" href="/accounts/logout/">Logout</a></p>
-    {% endif %}
+
 
 <a href="/fukuan/addfukuanmx/" style="width: 80%;" class="btn btn-primary btn-lg btn-block">按此添加付款信息</a>
+    <div class="table-responsive">
 <table style="width: 80%;" class="table table-hover">
      <thead>
 		 <tr>
@@ -386,13 +288,13 @@
 	 {% endfor %}
 	 </tbody>
 </table>
+    </div>
 {% endifequal %}
 {% ifequal listleibie 'todo' %}
-    {% if request.user.is_authenticated %}
-    <p class="text-info">{{ request.user }}您好！<a class="text-danger" href="/accounts/logout/">Logout</a></p>
-    {% endif %}
+
 
 <a href="/todo/createtodo/" style="width: 100%;" class="btn btn-primary btn-lg btn-block">按此添加TODO</a>
+    <div class="table-responsive">
 <table style="width: 100%;" class="table table-hover">
      <thead>
 		 <tr>
@@ -416,6 +318,35 @@
 	 {% endfor %}
 	 </tbody>
 </table>
+    </div>
+{% endifequal %}
+ {% ifequal listleibie 'yijian' %}
+
+    <div class="table-responsive">
+<table style="width: 100%;" class="table table-hover">
+     <thead>
+		 <tr>
+			    <th>url</th>
+                <th>日期</th>
+                <th>email</th>
+                <th>内容</th>
+                <th>编辑</th>
+         </tr>
+	</thead>
+	 <tbody>
+		  <tr>
+    {% for yijian in yijianlist %}
+        <td>{{ yijian.url }}</td>
+        <td>{{ yijian.yijian_riqi|date:"Y年m月d日"}}</td>
+        <td>{{ yijian.yijian_email }}</td>
+        <td>{{ yijian.yijian_neirong }}</td>
+        <td><a href="/yijian/edityijian/{{yijian.id}}" class="btn btn-primary" >编辑</a><br></td>
+
+	 </tr>
+	 {% endfor %}
+	 </tbody>
+</table>
+    </div>
 {% endifequal %}
 {% endblock %}
 

@@ -7,6 +7,7 @@ from django.forms.extras.widgets import SelectDateWidget
 import datetime
 import views
 
+
 class AddPinlei(ModelForm):
     class Meta:
         model = PinleiGL
@@ -358,9 +359,44 @@ class Todo(ModelForm):
         }
 
 class EditTodo(ModelForm):
-    class Meta:
-        model = TODO
-        fields = ['todo_is_complete','todo_create_date','todo_complete_date','todo_content']
+	class Meta:
+		model = TODO
+		fields = ['todo_is_complete','todo_create_date','todo_complete_date','todo_content']
+		widgets = {'todo_content': Textarea(attrs={'cols': 40, 'rows': 5}),}
+
+class Yijian(ModelForm):
+	class Meta:
+		model = yijian
+		fields = ['yijian_email','yijian_neirong']
+		widgets = {
+            'yijian_neirong': Textarea(attrs={'cols': 40, 'rows': 7}),
+        }
+
+	def clean_yijian_email(self):
+		email = self.cleaned_data['yijian_email'].lower().strip()
+		re_email = ur"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+		if email != '':
+			if not re.match(re_email,email):
+				html = u'%s不是有效邮件地址，请重新填写。'  % (email)
+				raise forms.ValidationError(html)
+		else:
+			pass
+		return email
+	def clean_yijian_neirong(self):
+		neirong = self.cleaned_data['yijian_neirong']
+		if len(neirong) < 3:
+			html = u'多输入两个字吧。'
+			raise forms.ValidationError(html)
+		return neirong
+
+class EditYijian(ModelForm):
+	class Meta:
+		model = yijian
+		fields = ['url','yijian_riqi','yijian_email','yijian_neirong']
+		widgets = {'yijian_neirong': Textarea(attrs={'cols': 40, 'rows': 7}),}
+
+
+
 
 
 

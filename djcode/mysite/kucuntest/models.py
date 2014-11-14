@@ -127,6 +127,12 @@ class TODO(models.Model):
 	class Meta:
 		ordering = ['todo_create_date']
 
+class yijian(models.Model):
+	url = models.CharField(max_length=50,verbose_name=u'url') #前一页url
+	yijian_riqi = models.DateField(verbose_name=u'填写日期')
+	yijian_email = models.CharField(max_length=254, blank=True, null= True,verbose_name=u'E-mail,可以不填写。')
+	yijian_neirong = models.CharField(max_length=400,verbose_name=u'请留下宝贵意见，谢谢！')
+
 
 
 

@@ -11,7 +11,7 @@
     <title>{% block title%}{% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="/static/css/offcanvas.css" rel="stylesheet">
@@ -22,8 +22,8 @@
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="/static/js/html5shiv.min.js"></script>
-      <script src="/static/js/respond.min.js"></script>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
   <div id="messages">
@@ -51,18 +51,26 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            {% block daohang %}{% endblock %}
+            {% include 'daohang.html' %}
           </ul>
 
         </div><!-- /.nav-collapse -->
       </div><!-- /.container -->
     </div><!-- /.navbar -->
+
     <div class="container">
     <div class="row row-offcanvas row-offcanvas-right">
+     <div class="col-xs-12 col-sm-12">
+     {% if request.user.is_authenticated %}
+    <p class="text-info">{{ request.user }}您好！<a class="text-danger" href="/accounts/logout/">Logout</a>
+{% endif %}
+<a class="btn btn-default" href="/yijian/addyijian/url={{ request.path }}" role="button">我要留言</a></p>
        {% block biaoge %}{% endblock %}
        {% block login %}{% endblock %}
        {% block page404 %}{% endblock %}
        {% block page500 %}{% endblock %}
+       {% block liuchengtu %}{% endblock %}
+    </div>
     </div>
     </div>
 
@@ -74,7 +82,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/static/js/jquery.min.js"></script>
-    <script src="/static/js/bootstrap.min.js"></script>
+   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/static/js/ie10-viewport-bug-workaround.js"></script>

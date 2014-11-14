@@ -42,7 +42,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'bootstrap3',
     'braces',
-    'books',
     'kucuntest',
 
 )
@@ -72,45 +71,18 @@ DATABASES = {
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'NAME': 'kucuntestdb',
         'USER': 'aga0217',
-        'PASSWORD': '155257aga',
-        'HOST': '116.113.44.166',
+        'PASSWORD': '1417123aga',
+        'HOST': '128.199.160.185',
         'PORT': '3306',
 
 
     }
 }
 
-"""
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'NAME': 'kucuntestdb',
-        'USER': 'aga0217',
-        'PASSWORD': '155257aga',
-        'HOST': '162.243.159.81',
-        'PORT': '3306',
 
 
-    }
-}
-
-"""
-"""
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'NAME': 'kucuntestdb',
-        'USER': 'aga0217',
-        'PASSWORD': '155257aga',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
 
 
-    }
-}
-"""
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
