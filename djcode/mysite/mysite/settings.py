@@ -43,13 +43,17 @@ INSTALLED_APPS = (
     'bootstrap3',
     'braces',
     'kucuntest',
+    'bootstrap3_datetime',
 
 )
 
 MIDDLEWARE_CLASSES = (
+	'django.middleware.locale.LocaleMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    #change local Language test(fang fa bu cheng gong ti shi "mei you localemiddleware")
+    #'change local Language test'
+
     #'django.middleware.locale.LocaleMiddleware'
+
     'django.middleware.common.CommonMiddleware',
     #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -72,7 +76,7 @@ DATABASES = {
         'NAME': 'kucuntestdb',
         'USER': 'aga0217',
         'PASSWORD': '1417123aga',
-        'HOST': '128.199.160.185',
+        'HOST': '119.29.9.163',
         'PORT': '3306',
 
 
@@ -86,7 +90,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'zh-cn'
+LANGUAGE_CODE = 'zh-CN'
 
 #TIME_ZONE = 'UTC'
 TIME_ZONE = 'Asia/Shanghai'
@@ -103,6 +107,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/python/staticdd/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/home/python/mediadd/'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -115,6 +121,10 @@ TEMPLATE_DIRS = (
 STATICFILES_DIRS = (
 	                  '/home/python/djcode/mysite/kucuntest/static',
 	               )
+
+MEDIAFILES_DIRS = (
+	                 os.path.join(BASE_DIR, "media"),
+                   )
 #因为bootstrap中没有ERROR属性，故没有办法为ERROR提供相应颜色，所以将ERROR指定为danger属性（实现根据属性自动更改颜色的功能）
 MESSAGE_TAGS = {message_constants.DEBUG: 'debug',
                 message_constants.INFO: 'info',

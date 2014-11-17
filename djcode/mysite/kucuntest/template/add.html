@@ -6,13 +6,15 @@
 
 {% block biaoge %}
 {% load bootstrap3 %}
+    <script src="/static/js/jquery.min.js"></script>
+    {{ form.media }}
 <p class="text-info">{{title}}</p>
 
 
     <form action=" " method="post" class="form" style="width: 80%;">
     {% csrf_token %}
     {% bootstrap_form form layout=layout %}
-    
+
     {% buttons %}
         <button  {% if erbuyanzheng %}onclick="javascript:if(confirm('{{erbuyanzhengneirong}}'))document.form1.submit();else return false;"{% endif %}type="submit" name="updata" class="btn btn-primary">提交
         </button>

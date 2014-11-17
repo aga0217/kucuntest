@@ -3,9 +3,11 @@ from django import forms
 import re
 from models import *
 from django.forms import ModelForm,Textarea
-from django.forms.extras.widgets import SelectDateWidget
 import datetime
 import views
+from bootstrap3_datetime.widgets import DateTimePicker
+
+
 
 
 class AddPinlei(ModelForm):
@@ -131,6 +133,8 @@ class EditGongyingshangname(ModelForm):
 class AddHetong (forms.Form):
     
     hetongNO = forms.CharField(max_length=30 , label=u'合同编号')
+    hetongdate = forms.DateField(widget=DateTimePicker(options={"format": "YYYY-MM-DD",
+                                       "pickTime": False}),label=u'合同签订日期')
     name = forms.ModelChoiceField(queryset=GongyingshangGL.objects.all(), empty_label="(Nothing)" ,
                                   label=u'供应商')
     pinleiname = forms.ModelChoiceField(queryset=PinleiGL.objects.all(),empty_label="(Nothing)" ,
@@ -139,7 +143,10 @@ class AddHetong (forms.Form):
     hetongshuliang = forms.IntegerField(label=u'合同数量')
     #hetongzongjia = forms.FloatField(label=u'合同数量')
     #kerukushuliang = forms.IntegerField(label=u'可入库数量')
-    hetongdate = forms.DateField(widget= SelectDateWidget(years=range(2013, 2020)),label=u'合同签订日期',)
+    #hetongdate = forms.DateField(widget= SelectDateWidget(years=range(2013, 2020)),label=u'合同签订日期',)
+
+
+
 
     def clean_hetongNO(self):
         hetongNO = self.cleaned_data['hetongNO']
@@ -162,7 +169,11 @@ class AddHetong (forms.Form):
 class EditHetong(ModelForm):
 	class Meta:
 		model = HetongGL
-		fields = ['name', 'pinleiname','gongjia', 'hetongshuliang', 'hetongdate']
+		fields = ['name', 'hetongdate','pinleiname','gongjia', 'hetongshuliang']
+		widgets = {
+            'hetongdate': DateTimePicker(options={"format": "YYYY-MM-DD",
+                                       "pickTime": False})}
+
 	def clean_hetongdate(self):
 		hetongdate = self.cleaned_data['hetongdate']
 		today = datetime.date.today()
@@ -173,7 +184,11 @@ class EditHetong(ModelForm):
 class AddChuRukumx(ModelForm):
     class Meta:
         model = ChuRukuMX
-        fields = ['hetongNO','churukufangxiang','churukumx_shuliang', 'churukumx_date']
+        fields = ['churukumx_date','hetongNO','churukufangxiang','churukumx_shuliang']
+        widgets = {
+            'churukumx_date': DateTimePicker(options={"format": "YYYY-MM-DD",
+                                       "pickTime": False})}
+
 
 
     def clean_churukumx_shuliang(self):
@@ -218,6 +233,9 @@ class AddFukuanMX(ModelForm): #增加付款明细表单
     class Meta:
         model = FukuanMX
         fields = ['hetongNO','fukuanmx_fukuanjine', 'fukuanmx_date'] #显示字段
+        widgets = {
+            'fukuanmx_date': DateTimePicker(options={"format": "YYYY-MM-DD",
+                                       "pickTime": False})}
 
 
     def clean_fukuanmx_date(self): #验证日期，不能大于当天日期
@@ -249,6 +267,9 @@ class EditFukuanMX(ModelForm): #编辑付款明细表单
     class Meta:
         model = FukuanMX
         fields = ['fukuanmx_fukuanjine', 'fukuanmx_date'] #显示字段
+        widgets = {
+            'fukuanmx_date': DateTimePicker(options={"format": "YYYY-MM-DD",
+                                       "pickTime": False})}
 
     def clean_fukuanmx_date(self): #验证日期，不能大于当天日期
         hetongNO = views.hetongno()
@@ -279,6 +300,9 @@ class EditChurukuMX(ModelForm):
     class Meta:
         model = ChuRukuMX
         fields = ['churukumx_shuliang','churukumx_date']
+        widgets = {
+            'churukumx_date': DateTimePicker(options={"format": "YYYY-MM-DD",
+                                       "pickTime": False})}
 
     def clean_churukumx_shuliang(self):
         churukumx_shuliang = abs(self.cleaned_data['churukumx_shuliang'])
